@@ -2,7 +2,9 @@
   <div class="mx-10 flex">
     <spec-side-drawer />
     <div class="pl-8 w-4/5">
-      <h1 class="text-xl font-bold mb-5">Spec Watcher Analysis & Operator Trades </h1>
+      <h1 class="text-xl font-bold mb-5">
+        Spec Watcher Analysis & Operator Trades
+      </h1>
       <template v-if="!selectedWatcher || !stockData">
         <div class="text-lg p-3">
           <div class="grid grid-cols-2">
@@ -11,8 +13,8 @@
               <span class="block text-center">
                 <font-awesome-icon
                   :icon="['fas', 'robot']"
-                  class="mr-1 text-gray-400 text-5xl">
-                </font-awesome-icon>
+                  class="mr-1 text-gray-400 text-5xl"
+                />
               </span>
               <p class="text-center text-base p-4">
                 Operator can buy or sell stocks based on information from one or multiple watchers
@@ -31,7 +33,10 @@
         </div>
       </template>
       <template v-else>
-        <trading-vue-chart :stockData="stockData" :watcherData="watcherData"/>
+        <trading-vue-chart
+          :stock-data="stockData"
+          :watcher-data="watcherData"
+        />
       </template>
     </div>
   </div>

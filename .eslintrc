@@ -1,5 +1,4 @@
 {
-  "parser": "babel-eslint",
   "overrides": [
     {
       "files": [
@@ -9,5 +8,7 @@
         "jest": true
       }
     }
-  ]
+  ],
+  "extends": ["plugin:vue/recommended"],
+  "plugins": ["vue"]
 }

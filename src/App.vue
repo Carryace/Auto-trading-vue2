@@ -1,7 +1,10 @@
 <template>
-  <div id="app" class="max-w-screen-xl content-center">
-    <at-header/>
-    <router-view class="mt-8"></router-view>
+  <div
+    id="app"
+    class="max-w-screen-xl content-center"
+  >
+    <at-header />
+    <router-view class="mt-8" />
   </div>
 </template>
 
