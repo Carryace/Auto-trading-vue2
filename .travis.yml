@@ -1,19 +1,14 @@
 language: node_js
 node_js:
- - "node"
-
+- node
 cache: npm
-
-script: 
-  - npm run test
-
+script:
+- npm run test
 after_success:
-  - npm run build
-
+- npm run build
 deploy:
   provider: heroku
   api_key:
-    secure: $HEROKU_API_KEY
-  app: 
-    master: auto-trading-system
-  on: master
+    secure: aghBeU6npmofw4ADpeWOQnZqJS8qSNnJmzsRoR/8UEfNW0xuWR9fu86I1mNO9axU3w6lgc1QvzcrtFRcV0cUs7ZvOyTDVNeVEx289thd1Si8PxK3+HQ7gmefzXgQ9fW6oEmFTkd2rvJYKrZxbp9Lc8Aou0WFbfBn+k2j2R7r1U0VZt1+Bp3bYvHIdFHifOriLgGMJI3pEK9eq0Aw+Sn4hFctBAR0+gP+PcrUJ13c51F9CCYg4Fk+Bb864A4Ed/Uv1F4hKP4Zzsr1K4Bc/vPgH15RXAuRP/f5uG3ldnXcLCZqWQ+Tme5xWr8sJ8F1b+E8vD04Dyw3EYBFzFzJAJKmLqC07DEkc6xgXKce2Nlyp0WrF/3mFBze9RfoHSWuLdBmXNN2iLVJQpaRgMkKwbXeM2v+WTDgO5uKw0ls4ig+PwyzY9oD4/E385P0YiMG1SdYBsSljwn9hp6otENjze8yZ9uJ57G2VxAbs1Xc1KznHGopPLzq0imgTjlH7aTNwStgnDZgazH8YQb+cYIIfH38OKvAVhzVhxD167mSvZYmSugvAdVsTqxKZjZf/GM242EcJE+pVJFbTPfNsrAps5qv/K6vtMQrs6ySdkpS7PW9/m9IDBf9PzfwjuGDK4m1LTMwgKX7HgGDK2QnAJu3u7sTv4tG22v33Fut2bZEKrCC3e0=
+  app: auto-trading-system
+  on: deploy-test
