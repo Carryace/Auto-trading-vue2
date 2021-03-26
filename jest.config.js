@@ -1,7 +1,7 @@
 module.exports = {
   preset: '@vue/cli-plugin-unit-jest',
   testMatch: ['**/src/**/*.spec.{ts,js}'],
-  moduleFileExtensions: ['js', 'html', 'json'],
+  moduleFileExtensions: ['js', 'vue', 'json'],
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/scripts/file.mock.ts',
@@ -10,30 +10,16 @@ module.exports = {
   verbose: false,
   bail: false,
   testURL: 'http://localhost/',
-  testPathIgnorePatterns: [
-    'build',
-    'dist',
-    'scripts',
-    'src/modules',
-  ],
-  coverageDirectory: './reports/coverage-app',
+  collectCoverage: true,
   collectCoverageFrom: [
-    '!src/main.js',
-    'src/**/*.vue',
-    '!src/**/mock.js',
+    'src/components/**/*.{js,vue}',
+    'src/utils/**/*.{js,vue}',
+    '!src/**/mixins/**/*',
   ],
-  coverageThreshold: {
-    './src/': {
-      lines: 70,
-      statements: 70,
-      functions: 70,
-      branches: 70,
-    },
+  transform: {
+    'vee-validate/dist/rules': 'babel-jest',
   },
-  coveragePathIgnorePatterns: [
-    '<rootDir>/src/tests',
-    '<rootDir>/src/types',
-    '<rootDir>/src/mocks',
-    '<rootDir>/src/environments',
+  transformIgnorePatterns: [
+    '<rootDir>/node_modules/(?!vee-validate/dist/rules)',
   ],
 };
