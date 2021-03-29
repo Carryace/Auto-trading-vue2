@@ -8,15 +8,12 @@ import { faCloudUploadAlt, faFolder, faFolderOpen, faRobot } from '@fortawesome/
 import { faDotCircle } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { store } from './store'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
 import '@/assets/styles.css'
 
 library.add(faDotCircle, faFolder, faFolderOpen, faCloudUploadAlt, faRobot)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(VueRouter);
-Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false
 

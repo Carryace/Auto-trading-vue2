@@ -4,14 +4,13 @@
       <trading-vue
         ref="tradingVueChart"
         :overlays="overlays"
-        :titleTxt="title"
+        :title-txt="title"
         :data="chartData"
         :color-back="colors.colorBack"
         :color-grid="colors.colorGrid"
-        :color-text="colors.colorText">
-      </trading-vue>
+        :color-text="colors.colorText"
+      />
     </template>
-    
   </div>
 </template>
 
@@ -43,7 +42,7 @@ const generateOnChartItem = {
 }
 
 export default {
-  name: 'AT-chart',
+  name: 'ATChart',
   components: { TradingVue },
   props: ['stockData', 'watcherData'],
   data() {
