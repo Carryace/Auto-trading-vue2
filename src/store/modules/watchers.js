@@ -1,5 +1,6 @@
-import axios from 'axios';
 import Vue from 'vue'
+import firebase from 'firebase/app'
+import 'firebase/database'
 
 export const watchersModule = {
   state: () => ({
@@ -20,26 +21,38 @@ export const watchersModule = {
   },
   actions: { 
     fetchWatchers({ commit }) {
-      axios.get('https://testing-6d04d.firebaseio.com/watchers.json').then(res => {
-        commit('updateWatcherList', {
-          list: Object.keys(res.data).map(key => res.data[key])
+      firebase.database().ref()
+        .child('watchers')
+        .get()
+        .then(snapshot => {
+          if (snapshot.exists()) {
+            const res = snapshot.val();
+            commit('updateWatcherList', {
+              list: Object.keys(res).map(key => res[key])
+            });
+          }
         });
-      });
     },
     selectWatcher({ commit, dispatch }, watcher) {
       commit('selectWatcher', watcher);
       dispatch('fetchStock', watcher.raw_data);
-      axios.get(`https://testing-6d04d.firebaseio.com/watcher_data/${watcher.watcher_data}.json`).then(res => {
-        res.data.wdata.forEach(item => {
-          item[0] = new Date(item[0]).getTime();
-          item[1] = parseFloat(item[1]);
-        })
-        commit('updateWatcherData', {
-          key: watcher.watcher_data,
-          value: res.data,
+      firebase.database().ref()
+        .child('watcher_data')
+        .child(watcher.watcher_data)
+        .get()
+        .then(snapshot => {
+          if (snapshot.exists()) {
+            const res = snapshot.val();
+            res.wdata.forEach(item => {
+              item[0] = new Date(item[0]).getTime();
+              item[1] = parseFloat(item[1]);
+            })
+            commit('updateWatcherData', {
+              key: watcher.watcher_data,
+              value: res,
+            });
+          }
         });
-      });
-      
     }
   },
   getters: {

@@ -70,9 +70,6 @@ export default {
       watcherList: state => state.watchers.watcherList,
     })
   },
-  mounted() {
-    store.dispatch('fetchWatchers');
-  },
   methods: {
     watcherClass(watcher) {
       if (this.selectedWatcher) {
