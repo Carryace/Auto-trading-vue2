@@ -45,6 +45,7 @@
 import { mapGetters, mapState } from 'vuex';
 import TradingVueChart from '../components/chart/TradingVueChart';
 import SpecSideDrawer from '../components/drawer/SpecSideDrawer';
+import { store } from '../store';
 
 export default {
   components: {
@@ -52,15 +53,15 @@ export default {
     SpecSideDrawer
   },
   computed: {
-    stockData() {
-      if (this.selectedWatcher) {
-        return this.getStockDataByToken(this.selectedWatcher.raw_data);
+    stockData({ selectedWatcher }) {
+      if (selectedWatcher) {
+        return this.getStockDataByToken(selectedWatcher.raw_data);
       }
       return null;
     },
-    watcherData() {
-      if (this.selectedWatcher) {
-        return this.getWatcherDataByToken(this.selectedWatcher.watcher_data)
+    watcherData({ selectedWatcher }) {
+      if (selectedWatcher) {
+        return this.getWatcherDataByToken(selectedWatcher.watcher_data)
       }
       return null;
     },
@@ -68,6 +69,9 @@ export default {
     ...mapState({
       selectedWatcher: state => state.watchers.selectedWatcher,
     })
+  },
+  beforeMount() {
+    store.dispatch('fetchWatchers');
   }
 }
 </script>
