@@ -45,7 +45,7 @@
 import { mapGetters, mapState } from 'vuex';
 import TradingVueChart from '../components/chart/TradingVueChart';
 import SpecSideDrawer from '../components/drawer/SpecSideDrawer';
-import { store } from '../store';
+import { store } from '../../store';
 
 export default {
   components: {
