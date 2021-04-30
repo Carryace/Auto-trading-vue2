@@ -43,8 +43,8 @@
 </template>
 <script>
 import { mapGetters, mapState } from 'vuex';
-import TradingVueChart from '../components/chart/TradingVueChart';
-import SpecSideDrawer from '../components/drawer/SpecSideDrawer';
+import TradingVueChart from '../../components/chart/TradingVueChart';
+import SpecSideDrawer from '../../components/drawer/SpecSideDrawer';
 import { store } from '../../store';
 
 export default {

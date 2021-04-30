@@ -9,8 +9,8 @@ import { faDotCircle } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import '@/assets/styles.css'
 
-import SpecPage from './pages/SpecPage'
-import HomePage from './pages/HomePage'
+import SpecPage from './pages/specPage/SpecPage'
+import HomePage from './pages/homePage/HomePage'
 import { store } from './store'
 
 library.add(faDotCircle, faFolder, faFolderOpen, faCloudUploadAlt, faRobot, faArrowRight)
